@@ -1,0 +1,8 @@
+{
+  "test.py::ControllerTests::test_pump": true,
+  "test.py::ControllerTests::test_setup": true,
+  "test.py::DeciderTests::test_decider_above": true,
+  "test.py::DeciderTests::test_decider_below": true,
+  "test.py::DeciderTests::test_decider_ok": true,
+  "test.py::DeciderTests::test_setup": true
+}

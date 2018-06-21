@@ -1,0 +1,7 @@
+{
+  "unit-test.py::CalculatorTests::test_adder_call": true,
+  "unit-test.py::CalculatorTests::test_divider_call": true,
+  "unit-test.py::CalculatorTests::test_multiplier_call": true,
+  "unit-test.py::CalculatorTests::test_subtracter_call": true,
+  "unit-test.py::DividerTests::test_multiplication": true
+}
