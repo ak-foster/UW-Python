@@ -1,9 +1,12 @@
 import os
+import base64
 
 from flask import Flask, render_template, request, redirect, url_for, session
+from model import SavedTotal
 
 app = Flask(__name__)
 app.secret_key = b'|\xea\xa6!\xb6EL\xc0\x06\xe9,\x94\xbc,\xbf\xc0\x7f!<!\xb7\xe9/\x12'
+
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
@@ -17,6 +20,17 @@ def add():
         session['total'] += number
 
     return render_template('add.jinja2', session=session)
+
+
+@app.route('/save', methods=['POST'])
+def save():
+    total = session.get('total', 0)
+    code = base64.b32encode(os.urandom(8)).decode().strip("=")
+
+    saved_total = SavedTotal(value=total, code=code)
+    saved_total.save()
+
+    return render_template('save.jinja2', code=code)
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
