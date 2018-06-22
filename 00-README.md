@@ -1,5 +1,5 @@
-####Welcome to my directory!
-*For each exercise, I will create a new directory containing python files for that exercise; 
+Welcome to my directory!
+For each exercise, I will create a new directory containing python files for that exercise; 
 add it to my repo and push to my fork on gitHub.*
 
 **A little about me:**
