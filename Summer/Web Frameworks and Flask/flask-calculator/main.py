@@ -5,8 +5,8 @@ from flask import Flask, render_template, request, redirect, url_for, session
 from model import SavedTotal
 
 app = Flask(__name__)
-app.secret_key = b'|\xea\xa6!\xb6EL\xc0\x06\xe9,\x94\xbc,\xbf\xc0\x7f!<!\xb7\xe9/\x12'
-
+# app.secret_key = b'|\xea\xa6!\xb6EL\xc0\x06\xe9,\x94\xbc,\xbf\xc0\x7f!<!\xb7\xe9/\x12'
+app.secret_key = os.environ.get('SECRET_KEY').encode()
 
 @app.route('/add', methods=['GET', 'POST'])
 def add():
@@ -31,6 +31,24 @@ def save():
     saved_total.save()
 
     return render_template('save.jinja2', code=code)
+
+
+@app.route('/retrieve')
+def retrieve():
+    code = request.args.get('code', None)
+
+    if code is None:
+        return render_template('retrieve.jinja2')
+    else:
+        try:
+            saved_total = SavedTotal.get(SavedTotal.code == code)
+        except SavedTotal.DoesNotExist:
+            return render_template('retrieve.jinja2', error="Code not found.")
+
+        session['total'] = saved_total.value
+
+        return redirect(url_for('add'))
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
