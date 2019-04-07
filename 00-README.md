@@ -3,9 +3,8 @@ For each exercise, I will create a new directory containing python files for tha
 add it to my repo and push to my fork on gitHub.*
 
 **A little about me:**
-- From this course, I hope to build the skills necessary to create my own product prototypes. 
 - My interest in Python started when created a script that makes paying my student loans easier. :)
-- I work as a Product Manager at Amazon (4 years).
+- By day, I work in Product @ Amazon (5+ years), by night I'm a wanna Python professor helping with UW Python classes.
 
 **Want to Connect?**
 
